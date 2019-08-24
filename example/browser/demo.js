@@ -18,5 +18,8 @@ fetch('/dist/module.optimized.wasm')
       },
     })
   }).then(mod => {
-    console.log(mod.instance.exports.fib(10));
+    const result = mod.instance.exports.fib(10);
+    const $body = document.querySelector('body');
+    $body.innerHTML = `<p>fib(10) = ${result}</p>`;
+    console.log(result);
   });

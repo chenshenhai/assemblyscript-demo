@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build:untouched && npm run build:optimized",
-    "build:untouched": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/index.untouched.wat -b dist/module.untouched.wasm --validate --sourceMap --measure",
-    "build:optimized": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/index.optimized.wat -b dist/module.optimized.wasm --validate --sourceMap --measure --optimize",
+    "build:untouched": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/module.untouched.wat -b dist/module.untouched.wasm --validate --sourceMap --measure",
+    "build:optimized": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/module.optimized.wat -b dist/module.optimized.wasm --validate --sourceMap --measure --optimize",
     "example:node": "node example/node/demo.js",
     "example:browser": "node example/browser/server.js"
   },
