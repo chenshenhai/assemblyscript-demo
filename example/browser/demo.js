@@ -1,3 +1,5 @@
+const $body = document.querySelector('body');
+
 fetch('/dist/module.optimized.wasm')
   .then(res => res.arrayBuffer())
   .then((wasm) => {
@@ -18,8 +20,25 @@ fetch('/dist/module.optimized.wasm')
       },
     })
   }).then(mod => {
-    const result = mod.instance.exports.fib(10);
-    const $body = document.querySelector('body');
-    $body.innerHTML = `<p>fib(10) = ${result}</p>`;
-    console.log(result);
+
+    const start = Date.now();
+    mod.instance.exports.fib(40);
+    const logWasm = `browser-wasm cost: ${Date.now() - start} ms`;
+    $body.innerHTML =  $body.innerHTML + `<p>${logWasm}</p>`
+
+    console.log(logWasm)
   });
+
+
+  function pureFib(num) {
+    if (num === 1 || num === 2) {
+      return 1;
+    } else {
+      return pureFib(num - 1) + pureFib(num - 2)
+    }
+  }
+  const startPure = Date.now()
+  pureFib(40);
+  const logPure = `browser-js cost: ${Date.now() - startPure} ms`;
+  $body.innerHTML =  $body.innerHTML + `<p>${logPure}</p>`
+  console.log(logPure);
