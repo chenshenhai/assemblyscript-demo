@@ -1,0 +1,29 @@
+{
+  "name": "assemblyscript-demo",
+  "version": "0.0.1",
+  "description": "a demo of assemblyscript",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:untouched && npm run build:optimized",
+    "build:untouched": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/index.untouched.wat -b dist/module.untouched.wasm --validate --sourceMap --measure",
+    "build:optimized": "./node_modules/assemblyscript/bin/asc src/index.ts -t dist/index.optimized.wat -b dist/module.optimized.wasm --validate --sourceMap --measure --optimize"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenshenhai/assemblyscript-demo.git"
+  },
+  "keywords": [
+    "assemblyscript",
+    "webassembly"
+  ],
+  "author": "chenshenhai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chenshenhai/assemblyscript-demo/issues"
+  },
+  "homepage": "https://github.com/chenshenhai/assemblyscript-demo#readme",
+  "devDependencies": {
+    "typescript": "^3.5.3",
+    "assemblyscript": "github:assemblyscript/assemblyscript"
+  }
+}
