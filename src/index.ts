@@ -1,9 +1,7 @@
-export function f(num: i32): i32 {
-  let result: i32 = 0;
+export function fib(num: i32): i32 {
   if (num === 1 || num === 2) {
-    result = 1;
+    return 1;
   } else {
-    result = f(num - 1) + f(num - 2)
+    return fib(num - 1) + fib(num - 2)
   }
-  return result;
 }

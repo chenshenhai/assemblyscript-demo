@@ -30,7 +30,7 @@
  (export "__release" (func $~lib/rt/pure/__release))
  (export "__collect" (func $~lib/rt/pure/__collect))
  (export "__rtti_base" (global $~lib/rt/__rtti_base))
- (export "f" (func $src/index/f))
+ (export "fib" (func $src/index/fib))
  (func $~lib/rt/tlsf/removeBlock (; 1 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
   (local $3 i32)
@@ -3201,10 +3201,7 @@
   local.get $0
   global.set $~lib/rt/pure/CUR
  )
- (func $src/index/f (; 27 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
-  (local $1 i32)
-  i32.const 0
-  local.set $1
+ (func $src/index/fib (; 27 ;) (type $FUNCSIG$ii) (param $0 i32) (result i32)
   local.get $0
   i32.const 1
   i32.eq
@@ -3217,20 +3214,20 @@
   end
   if
    i32.const 1
-   local.set $1
+   return
   else   
    local.get $0
    i32.const 1
    i32.sub
-   call $src/index/f
+   call $src/index/fib
    local.get $0
    i32.const 2
    i32.sub
-   call $src/index/f
+   call $src/index/fib
    i32.add
-   local.set $1
+   return
   end
-  local.get $1
+  unreachable
  )
  (func $~lib/rt/pure/__visit (; 28 ;) (type $FUNCSIG$vii) (param $0 i32) (param $1 i32)
   (local $2 i32)
