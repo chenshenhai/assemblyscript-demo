@@ -23,7 +23,7 @@ fetch('/dist/module.optimized.wasm')
 
     const start = Date.now();
     mod.instance.exports.fib(40);
-    const logWasm = `browser-wasm cost: ${Date.now() - start} ms`;
+    const logWasm = `browser-wasm time consume: ${Date.now() - start} ms`;
     $body.innerHTML =  $body.innerHTML + `<p>${logWasm}</p>`
 
     console.log(logWasm)
@@ -39,6 +39,6 @@ fetch('/dist/module.optimized.wasm')
   }
   const startPure = Date.now()
   pureFib(40);
-  const logPure = `browser-js cost: ${Date.now() - startPure} ms`;
+  const logPure = `browser-js time consume: ${Date.now() - startPure} ms`;
   $body.innerHTML =  $body.innerHTML + `<p>${logPure}</p>`
   console.log(logPure);

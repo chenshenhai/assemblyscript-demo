@@ -2,7 +2,7 @@ const mod = require('./module');
 
 const start = Date.now();
 mod.fib(40)
-console.log(`nodejs-wasm cost: ${Date.now() - start}`)
+console.log(`nodejs-wasm time consume: ${Date.now() - start} ms`)
 
 
 
@@ -15,4 +15,4 @@ function pureFib(num) {
 }
 const startPure = Date.now()
 pureFib(40);
-console.log(`nodejs-js cost: ${Date.now() - startPure}`)
+console.log(`nodejs-js time consume: ${Date.now() - startPure} ms`)
